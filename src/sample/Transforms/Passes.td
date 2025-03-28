@@ -8,4 +8,14 @@ def SampleTypeCheck : Pass<"sample-type-check"> {
     let constructor = "mlir::sample::createSampleTypeCheckPass()"; 
 }
 
+// The ID string "matmul-opt" must match your registration name
+def MatmulOpt : Pass<"matmul-opt"> {
+  let summary = "Optimize matrix multiplications using tiling";
+  let constructor = "mlir::sample::createMatmulOptPass()";
+  let dependentDialects = [
+    "mlir::linalg::LinalgDialect",
+    "mlir::scf::SCFDialect"
+  ];
+}
+
 #endif //_SAMPLES_TRANSFORMS_PASSES_TD_

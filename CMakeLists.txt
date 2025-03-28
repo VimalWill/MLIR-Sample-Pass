@@ -32,5 +32,11 @@ include_directories(${PROJECT_BINARY_DIR}/src)
 link_directories(${LLVM_BUILD_LIBRARY_DIR})
 add_definitions(${LLVM_DEFINITIONS})
 
+# Get properties for all dialect libraries - ADD THIS SECTION
+get_property(dialect_libs GLOBAL PROPERTY MLIR_DIALECT_LIBS)
+get_property(conversion_libs GLOBAL PROPERTY MLIR_CONVERSION_LIBS)
+message(STATUS "Available MLIR dialect libraries: ${dialect_libs}")
+message(STATUS "Available MLIR conversion libraries: ${conversion_libs}")
+
 add_subdirectory(src)
 add_subdirectory(tools)

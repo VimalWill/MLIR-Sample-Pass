@@ -5,12 +5,16 @@
 
 namespace mlir::sample {
 
-std::unique_ptr<mlir::Pass> createSampleTypeCheckPass(); 
+// Pass creation forward declarations
+std::unique_ptr<mlir::Pass> createSampleTypeCheckPass();
+std::unique_ptr<mlir::Pass> createMatmulOptPass();
 
-#define GEN_PASS_REGISTRATION
+// Include the auto-generated declarations
+#define GEN_PASS_DECL
 #include "sample/Transforms/Passes.h.inc"
 
-#define GEN_PASS_DECL
+// Registration function for all passes
+#define GEN_PASS_REGISTRATION
 #include "sample/Transforms/Passes.h.inc"
 
 } // namespace mlir::sample
