@@ -18,4 +18,9 @@ def MatmulOpt : Pass<"matmul-opt"> {
   ];
 }
 
+
+def SampleConvertFunction : Pass<"sample-convert-function"> {
+  let constructor = "mlir::sample::createSampleConvertFunctionPass()"; 
+}
+
 #endif //_SAMPLES_TRANSFORMS_PASSES_TD_

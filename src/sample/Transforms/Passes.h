@@ -8,6 +8,7 @@ namespace mlir::sample {
 // Pass creation forward declarations
 std::unique_ptr<mlir::Pass> createSampleTypeCheckPass();
 std::unique_ptr<mlir::Pass> createMatmulOptPass();
+std::unique_ptr<mlir::Pass> createSampleConvertFunctionPass(); 
 
 // Include the auto-generated declarations
 #define GEN_PASS_DECL
